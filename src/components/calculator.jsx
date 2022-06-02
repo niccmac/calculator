@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Calculator() {
+const Calculator = () => {
   //State
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
@@ -162,4 +162,5 @@ export default function Calculator() {
       </div>
     </div>
   );
-}
+};
+export default Calculator;
