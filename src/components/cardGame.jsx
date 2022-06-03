@@ -1,19 +1,52 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCoffee,
+  faGhost,
+  faBinoculars,
+  faFrog,
+  faHotdog,
+  faSocks,
+  faWorm,
+  faSkullCrossbones,
+} from "@fortawesome/free-solid-svg-icons";
+
 const CardGame = () => {
-  const [cardIcons, setCardIcons] =
-    useState[
-      ("fa-solid fa-crab",
-      "fa-solid fa-duck",
-      "fa-solid fa-croissant",
-      "fa-solid fa-ghost",
-      "fa-solid fa-pineapple",
-      "fa-solid fa-user-astronaut",
-      "fa-solid fa-socks",
-      "fa-solid fa-tree-palm")
-    ];
-  const cardList = () => {
-    for (let i = 0; i < 17; i++) {}
-  };
-  return <div className="card-game"></div>;
+  return (
+    <div className="card-game">
+      <FontAwesomeIcon icon={faCoffee} />
+      &nbsp;
+      <FontAwesomeIcon icon={faGhost} />
+      &nbsp;
+      <FontAwesomeIcon icon={faBinoculars} />
+      &nbsp;
+      <FontAwesomeIcon icon={faFrog} />
+      &nbsp;
+      <FontAwesomeIcon icon={faHotdog} />
+      &nbsp;
+      <FontAwesomeIcon icon={faSocks} />
+      &nbsp;
+      <FontAwesomeIcon icon={faWorm} />
+      &nbsp;
+      <FontAwesomeIcon icon={faSkullCrossbones} />
+      &nbsp;
+      <FontAwesomeIcon icon={faCoffee} />
+      &nbsp;
+      <FontAwesomeIcon icon={faGhost} />
+      &nbsp;
+      <FontAwesomeIcon icon={faBinoculars} />
+      &nbsp;
+      <FontAwesomeIcon icon={faFrog} />
+      &nbsp;
+      <FontAwesomeIcon icon={faHotdog} />
+      &nbsp;
+      <FontAwesomeIcon icon={faSocks} />
+      &nbsp;
+      <FontAwesomeIcon icon={faWorm} />
+      &nbsp;
+      <FontAwesomeIcon icon={faSkullCrossbones} />
+      &nbsp;
+    </div>
+  );
 };
 export default CardGame;

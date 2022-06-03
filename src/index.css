@@ -87,3 +87,24 @@ button:hover {
   width: 100%;
   background-color: var(--secondary);
 }
+
+.card-game {
+  background-color: var(--dark);
+  color: aliceblue;
+  flex-flow: column wrap;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 4 0 25%;
+}
+
+.svg-inline--fa {
+  display: flex;
+  height: 100px;
+  padding: 5px;
+  flex-basis: auto;
+}
