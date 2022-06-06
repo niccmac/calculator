@@ -10,42 +10,50 @@ import {
   faWorm,
   faSkullCrossbones,
 } from "@fortawesome/free-solid-svg-icons";
+import { Grid, Card } from "@mui/material";
 
 const CardGame = () => {
   return (
     <div className="card-game">
-      <FontAwesomeIcon icon={faCoffee} />
-      &nbsp;
-      <FontAwesomeIcon icon={faGhost} />
-      &nbsp;
-      <FontAwesomeIcon icon={faBinoculars} />
-      &nbsp;
-      <FontAwesomeIcon icon={faFrog} />
-      &nbsp;
-      <FontAwesomeIcon icon={faHotdog} />
-      &nbsp;
-      <FontAwesomeIcon icon={faSocks} />
-      &nbsp;
-      <FontAwesomeIcon icon={faWorm} />
-      &nbsp;
-      <FontAwesomeIcon icon={faSkullCrossbones} />
-      &nbsp;
-      <FontAwesomeIcon icon={faCoffee} />
-      &nbsp;
-      <FontAwesomeIcon icon={faGhost} />
-      &nbsp;
-      <FontAwesomeIcon icon={faBinoculars} />
-      &nbsp;
-      <FontAwesomeIcon icon={faFrog} />
-      &nbsp;
-      <FontAwesomeIcon icon={faHotdog} />
-      &nbsp;
-      <FontAwesomeIcon icon={faSocks} />
-      &nbsp;
-      <FontAwesomeIcon icon={faWorm} />
-      &nbsp;
-      <FontAwesomeIcon icon={faSkullCrossbones} />
-      &nbsp;
+      <Grid container spacing={2} columns={4}>
+        <Grid item xs={1}>
+          <Card className="card" />
+          <FontAwesomeIcon icon={faCoffee} />
+
+          <FontAwesomeIcon icon={faGhost} />
+
+          <FontAwesomeIcon icon={faBinoculars} />
+
+          <FontAwesomeIcon icon={faFrog} />
+        </Grid>
+        <Grid item xs={1}>
+          <FontAwesomeIcon icon={faHotdog} />
+
+          <FontAwesomeIcon icon={faSocks} />
+
+          <FontAwesomeIcon icon={faWorm} />
+
+          <FontAwesomeIcon icon={faSkullCrossbones} />
+        </Grid>
+        <Grid item xs={1}>
+          <FontAwesomeIcon icon={faCoffee} />
+
+          <FontAwesomeIcon icon={faGhost} />
+
+          <FontAwesomeIcon icon={faBinoculars} />
+
+          <FontAwesomeIcon icon={faFrog} />
+        </Grid>
+        <Grid item xs={1}>
+          <FontAwesomeIcon icon={faHotdog} />
+
+          <FontAwesomeIcon icon={faSocks} />
+
+          <FontAwesomeIcon icon={faWorm} />
+
+          <FontAwesomeIcon icon={faSkullCrossbones} />
+        </Grid>
+      </Grid>
     </div>
   );
 };
