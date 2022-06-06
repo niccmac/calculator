@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCoffee,
@@ -10,51 +10,30 @@ import {
   faWorm,
   faSkullCrossbones,
 } from "@fortawesome/free-solid-svg-icons";
-import { Grid, Card } from "@mui/material";
+import { Grid, Card, Button } from "@mui/material";
+import CardList from "./cardList";
 
 const CardGame = () => {
+  const [cardOne, setCardOne] = useState();
+  const [cardTwo, setCardTwo] = useState();
+  const [cardTurns, setCardTurns] = useState();
+
+  if (cardOne === cardTwo) {
+    // Alert
+    // then cards become unclickable
+    // setCardTurns += 1
+    // setCardOne();
+    // setCardTwo();
+  } else {
+    // setCardTurns += 1
+    // setCardOne();
+    // setCardTwo();
+  }
+
   return (
-    <div className="card-game">
-      <Grid container spacing={2} columns={4}>
-        <Grid item xs={1}>
-          <Card className="card" />
-          <FontAwesomeIcon icon={faCoffee} />
-
-          <FontAwesomeIcon icon={faGhost} />
-
-          <FontAwesomeIcon icon={faBinoculars} />
-
-          <FontAwesomeIcon icon={faFrog} />
-        </Grid>
-        <Grid item xs={1}>
-          <FontAwesomeIcon icon={faHotdog} />
-
-          <FontAwesomeIcon icon={faSocks} />
-
-          <FontAwesomeIcon icon={faWorm} />
-
-          <FontAwesomeIcon icon={faSkullCrossbones} />
-        </Grid>
-        <Grid item xs={1}>
-          <FontAwesomeIcon icon={faCoffee} />
-
-          <FontAwesomeIcon icon={faGhost} />
-
-          <FontAwesomeIcon icon={faBinoculars} />
-
-          <FontAwesomeIcon icon={faFrog} />
-        </Grid>
-        <Grid item xs={1}>
-          <FontAwesomeIcon icon={faHotdog} />
-
-          <FontAwesomeIcon icon={faSocks} />
-
-          <FontAwesomeIcon icon={faWorm} />
-
-          <FontAwesomeIcon icon={faSkullCrossbones} />
-        </Grid>
-      </Grid>
-    </div>
+    <>
+      <CardList />{" "}
+    </>
   );
 };
 export default CardGame;
