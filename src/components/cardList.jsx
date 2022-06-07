@@ -38,6 +38,7 @@ const CardList = () => {
   const [flipped, setFlipped] = useState([]);
   const [turns, setTurns] = useState(0);
   const randomIconsArray = [];
+
   const generateGame = () => {
     for (let i = 0; i < 16; i++) {
       const randomIconPicker = () => {
