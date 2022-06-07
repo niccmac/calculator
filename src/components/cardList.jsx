@@ -1,5 +1,5 @@
-import { Grid, Card, Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { CardActionArea, Button, Grid, Card } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCoffee,
@@ -10,10 +10,13 @@ import {
   faSocks,
   faWorm,
   faSkullCrossbones,
+  faDiamond,
 } from "@fortawesome/free-solid-svg-icons";
 import MyCard from "./myCard";
+import GameProvider, { gameContext, useGame } from "./providers/gameProvider";
+
 const CardList = () => {
-  const [game, setGame] = useState(true);
+  // const [game, setGame] = useState(true);
   const icons = [
     faCoffee,
     faGhost,
@@ -32,9 +35,10 @@ const CardList = () => {
     faWorm,
     faSkullCrossbones,
   ];
+  const [flipped, setFlipped] = useState([]);
+  const [turns, setTurns] = useState(0);
   const randomIconsArray = [];
   const generateGame = () => {
-    // setGame(false);
     for (let i = 0; i < 16; i++) {
       const randomIconPicker = () => {
         let picker = icons[Math.floor(Math.random() * icons.length)];
@@ -44,15 +48,50 @@ const CardList = () => {
       };
       randomIconPicker();
     }
-    // setGame(true);
   };
-
   generateGame();
 
+  const handleCardClick = (event, index) => {
+    if (flipped.length === 1) {
+      setFlipped((prev) => [...prev, index]);
+      setTurns((turns) => turns + 1);
+    } else {
+      // If two cards are already open, we cancel timeout set for flipping cards back
+      // clearTimeout(timeout.current);
+      setFlipped([index]);
+    }
+  };
+
   return (
-    <>
+    <GameProvider>
       <Button onClick={generateGame}> New Game</Button>
-      <Grid className="card-game" container spacing={2} columns={4}>
+      <Grid
+        className="card-game"
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={16}
+        borderRadius={10}
+        padding={5}
+      >
+        {randomIconsArray.map((icon, index) => {
+          return (
+            <Grid item md={4} key={index}>
+              <CardActionArea>
+                <FontAwesomeIcon
+                  key={index}
+                  isDisabled={false}
+                  isInactive={false}
+                  isFlipped={flipped.includes(index)}
+                  icon={flipped.includes(index) ? icon : faDiamond}
+                  padding={2}
+                  onClick={(event) => handleCardClick(event, index)}
+                />
+              </CardActionArea>
+            </Grid>
+          );
+        })}
+      </Grid>
+      {/* <Grid className="card-game" container spacing={2} columns={4}>
         <Grid item xs={1} className="card-list">
           <MyCard picker={randomIconsArray[0]} />
           <MyCard picker={randomIconsArray[1]} />
@@ -77,8 +116,8 @@ const CardList = () => {
           <MyCard picker={randomIconsArray[14]} />
           <MyCard picker={randomIconsArray[15]} />
         </Grid>
-      </Grid>
-    </>
+      </Grid> */}
+    </GameProvider>
   );
 };
 
