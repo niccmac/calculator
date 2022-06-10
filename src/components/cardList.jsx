@@ -80,9 +80,9 @@ const CardList = () => {
               <CardActionArea>
                 <FontAwesomeIcon
                   key={index}
-                  isDisabled={false}
-                  isInactive={false}
-                  isFlipped={flipped.includes(index)}
+                  isdisabled={false}
+                  isinactive={false}
+                  isflipped={flipped.includes(index)}
                   icon={flipped.includes(index) ? icon : faDiamond}
                   padding={2}
                   onClick={(event) => handleCardClick(event, index)}
