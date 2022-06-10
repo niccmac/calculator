@@ -4,7 +4,7 @@ import { toDoContext } from "./providers/toDoProvider";
 import ToDo from "./toDo";
 import ToDoForm from "./toDoForm";
 const ToDoList = (props) => {
-  const { allToDo, addToDo } = useContext(toDoContext);
+  const { addToDo } = useContext(toDoContext);
 
   return (
     <div className="todo">
