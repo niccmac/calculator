@@ -17,7 +17,6 @@ export default function ToDoProvider(props) {
     setAllToDo([...updatedToDos]);
   };
   const completeToDo = (id) => {
-    console.log("in providers");
     let updatedToDos = allToDo.map((task) => {
       if (task.id === id) {
         task.isComplete = !task.isComplete;
@@ -26,12 +25,20 @@ export default function ToDoProvider(props) {
     });
     setAllToDo([...updatedToDos]);
   };
+  const editToDo = (id, newText) => {
+    console.log(newText.text, id);
+    if (!newText.text || /^\s$/.test(newText.text)) {
+      return;
+    }
+    setAllToDo((prev) => prev.map((item) => (item.id === id ? newText : null)));
+  };
   const exportValues = {
     addToDo,
     allToDo,
     setAllToDo,
     deleteToDo,
     completeToDo,
+    editToDo,
   };
 
   return (

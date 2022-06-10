@@ -4,13 +4,23 @@ import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 import { toDoContext } from "./providers/toDoProvider";
 
 const ToDo = () => {
+  const { deleteToDo, completeToDo, allToDo, editToDo } =
+    useContext(toDoContext);
+  const mapMe = allToDo;
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
-  const { deleteToDo, completeToDo, allToDo } = useContext(toDoContext);
-  const mapMe = allToDo;
-  console.log(allToDo);
+  const submitUpdate = (value) => {
+    editToDo(edit.id, value);
+    setEdit({
+      id: null,
+      value: "",
+    });
+  };
+  if (edit.id) {
+    return <ToDoForm edit={edit} onSubmit={submitUpdate} />;
+  }
 
   let taskList;
   if (Array.isArray(mapMe)) {
@@ -26,7 +36,7 @@ const ToDo = () => {
           <AiTwotoneEdit
             className="edit-icon"
             onClick={() => {
-              setEdit({ id: task.id, value: task.value });
+              setEdit({ id: task.id, value: task.text });
             }}
           />
           <AiTwotoneDelete
