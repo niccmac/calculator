@@ -1,4 +1,5 @@
 import "./App.css";
+import ToDoProvider from "./components/providers/toDoProvider";
 // import Calculator from "./components/calculator";
 // import CardGame from "./components/cardGame";
 // import ToDoForm from "./components/toDoForm";
@@ -9,7 +10,9 @@ const App = () => {
       {/* <Calculator /> */}
       {/* <p>Duck</p> */}
       {/* <CardGame /> */}
-      <ToDoList />
+      <ToDoProvider>
+        <ToDoList />
+      </ToDoProvider>
     </div>
   );
 };

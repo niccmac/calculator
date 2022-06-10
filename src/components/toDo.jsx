@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ToDoForm from "./toDoForm";
 import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
+import { toDoContext } from "./providers/toDoProvider";
 
-const ToDo = (allTasks, completeToDo) => {
+const ToDo = (allTasks) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
-  let taskList;
   const mapMe = allTasks.allTasks;
-  console.log(mapMe[0]);
+  const { deleteToDo, completeToDo } = useContext(toDoContext);
+
+  let taskList;
   if (Array.isArray(mapMe)) {
     taskList = mapMe[0].map((task, index) => {
-      console.log(task);
       return (
         <div
           // className={task[0].isComplete ? "todo-row complete" : "todo-row "}
@@ -22,16 +23,16 @@ const ToDo = (allTasks, completeToDo) => {
             {task.text}
           </div>
           <AiTwotoneEdit
-          // className="edit-icon"
-          // onClick={() => {
-          //   editToDo(todo.id);
-          // }}
+            className="edit-icon"
+            onClick={() => {
+              setEdit({ id: task.id, value: task.value });
+            }}
           />
           <AiTwotoneDelete
-          // className="delete-icon"
-          // onClick={() => {
-          //   setEdit({ id: task.id, value: task.value });
-          // }}
+            className="delete-icon"
+            onClick={() => {
+              deleteToDo(task.id);
+            }}
           />
         </div>
       );
