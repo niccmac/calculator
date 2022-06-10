@@ -121,19 +121,6 @@ button:hover {
   min-width: 100px;
 }
 
-/* .MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-2.card-game.css-mhc70k-MuiGrid-root {
-  width: 600px;
-  padding: 0px;
-  margin: 2px;
-} */
-/* 
-.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-2.card-game.css-mhc70k-MuiGrid-root {
-  border-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-} */
 button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root {
   size: 50px;
   display: flex;
@@ -146,4 +133,20 @@ button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-M
   display: flex;
   flex-direction: column;
   padding: 5px;
+}
+
+.todo-form {
+}
+.todo-input {
+  padding: 10px;
+  color: var(--dark);
+}
+
+button.todo-button {
+  color: var(--dark);
+  background-color: var(--secondary);
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.todo-row-complete.css-1ri6ub7-MuiPaper-root-MuiCard-root {
+  color: red;
 }

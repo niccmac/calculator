@@ -17,6 +17,7 @@ const ToDoForm = (props) => {
     props.onSubmit({
       id: uuidv4(),
       text: input,
+      isComplete: false,
     });
     setInput("");
   };

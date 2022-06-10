@@ -1,5 +1,12 @@
 import React, { useState, useContext } from "react";
 import ToDoForm from "./toDoForm";
+import {
+  Chip,
+  Card,
+  CardContent,
+  Typography,
+  CardActions,
+} from "@mui/material";
 import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 import { toDoContext } from "./providers/toDoProvider";
 
@@ -26,26 +33,38 @@ const ToDo = () => {
   if (Array.isArray(mapMe)) {
     taskList = mapMe.map((task, index) => {
       return (
-        <div
-          // className={task[0].isComplete ? "todo-row complete" : "todo-row "}
+        <Card
+          sx={{ maxWidth: 345 }}
+          className={task.isComplete ? "todo-row-complete" : "todo-row "}
           key={index}
         >
-          <div key={task.id} onClick={() => completeToDo(task.id)}>
-            {task.text}
-          </div>
-          <AiTwotoneEdit
-            className="edit-icon"
-            onClick={() => {
-              setEdit({ id: task.id, value: task.text });
-            }}
-          />
-          <AiTwotoneDelete
-            className="delete-icon"
-            onClick={() => {
-              deleteToDo(task.id);
-            }}
-          />
-        </div>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" key={task.id}>
+              {task.text}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Chip
+              icon={<AiTwotoneEdit className="edit-icon" />}
+              onClick={() => {
+                setEdit({ id: task.id, value: task.text });
+              }}
+              label="Edit"
+            ></Chip>
+            <Chip
+              icon={<AiTwotoneDelete className="delete-icon" />}
+              onClick={() => {
+                deleteToDo(task.id);
+              }}
+              label="Delete"
+            ></Chip>
+            <Chip
+              icon={<AiTwotoneDelete className="delete-icon" />}
+              onClick={() => completeToDo(task.id)}
+              label="Complete"
+            ></Chip>
+          </CardActions>
+        </Card>
       );
     });
   }

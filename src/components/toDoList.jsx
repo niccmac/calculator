@@ -8,7 +8,7 @@ const ToDoList = (props) => {
 
   return (
     <div className="todo">
-      <h1>To Do</h1>
+      <h1>Tasks</h1>
       <ToDoForm onSubmit={addToDo} />
       <ToDo />
     </div>
