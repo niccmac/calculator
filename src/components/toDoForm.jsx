@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { Button, TextField } from "@mui/material";
+import React, { useState, useRef, useEffect } from "react";
+import { Button, TextField, Input } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
 const ToDoForm = (props) => {
   const [input, setInput] = useState("");
+  const currentRef = useRef(null);
+  useEffect(() => {
+    currentRef.current.focus();
+  });
   const inputHandler = (e) => {
     setInput(e.target.value);
   };
@@ -19,7 +23,8 @@ const ToDoForm = (props) => {
   return (
     <>
       <form className="todo-form">
-        <TextField
+        <Input
+          inputRef={currentRef}
           type="text"
           placeholder="Add a task..."
           value={input}
@@ -27,6 +32,7 @@ const ToDoForm = (props) => {
           className="todo-input"
           onChange={inputHandler}
         />
+
         <Button
           className="todo-button"
           variant="outlined"
