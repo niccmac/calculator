@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
-const ToDoForm = () => {
+const ToDoForm = (props) => {
   const [input, setInput] = useState("");
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -10,10 +10,10 @@ const ToDoForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // props.onSubmit({
-    //   id: uuidv4(),
-    //   text: input,
-    // });
+    props.onSubmit({
+      id: uuidv4(),
+      text: input,
+    });
     setInput("");
   };
   return (
