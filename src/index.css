@@ -3,6 +3,11 @@
   --secondary: #f18805;
   --light: #d95d39;
   --dark: #202c59;
+  --tdprimary: #e07a5f;
+  --tdsecondary: #3d405b;
+  --tdlight: #f4f1de;
+  --tdgreen: #81b29a;
+  ----tdbase: #f2cc8f;
 }
 
 * {
@@ -12,16 +17,13 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
-body {
-  background-color: var(--light);
-}
-
 .App {
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   padding: 16px;
+  background-color: var(--tdlight);
 }
 
 .calaculator {
@@ -133,9 +135,13 @@ button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-M
   display: flex;
   flex-direction: column;
   padding: 5px;
+  background-color: #e07a5f;
+  border-radius: 10px;
 }
 
-.todo-form {
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.todo-form.css-bhp9pd-MuiPaper-root-MuiCard-root {
+  background-color: var(--tdprimary);
+  padding: 10px;
 }
 .todo-input {
   padding: 10px;
@@ -143,6 +149,7 @@ button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-M
 }
 
 button.todo-button {
+  padding: 5px;
   color: var(--dark);
   background-color: var(--secondary);
 }

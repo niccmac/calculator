@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Button, TextField, Input } from "@mui/material";
+import { Button, TextField, Input, Card } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
 const ToDoForm = (props) => {
@@ -22,12 +22,12 @@ const ToDoForm = (props) => {
     setInput("");
   };
   return (
-    <>
-      <form className="todo-form">
+    <Card className="todo-form">
+      <form>
         {props.edit ? (
           <>
             {" "}
-            <Input
+            <TextField
               inputRef={currentRef}
               type="text"
               placeholder="Update task..."
@@ -35,6 +35,9 @@ const ToDoForm = (props) => {
               name="text"
               className="todo-input edit"
               onChange={inputHandler}
+              fullWidth
+              label="Update task"
+              variant="outlined"
             />
             <Button
               className="todo-button edit"
@@ -48,7 +51,7 @@ const ToDoForm = (props) => {
         ) : (
           <>
             {" "}
-            <Input
+            <TextField
               inputRef={currentRef}
               type="text"
               placeholder="Add a task..."
@@ -56,6 +59,9 @@ const ToDoForm = (props) => {
               name="text"
               className="todo-input"
               onChange={inputHandler}
+              fullWidth
+              label="Enter task"
+              variant="outlined"
             />
             <Button
               className="todo-button"
@@ -68,7 +74,7 @@ const ToDoForm = (props) => {
           </>
         )}
       </form>
-    </>
+    </Card>
   );
 };
 export default ToDoForm;
