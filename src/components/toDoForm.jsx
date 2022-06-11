@@ -23,57 +23,59 @@ const ToDoForm = (props) => {
   };
   return (
     <Card className="todo-form">
-      <form>
-        {props.edit ? (
-          <>
-            {" "}
-            <TextField
-              inputRef={currentRef}
-              type="text"
-              placeholder="Update task..."
-              value={input}
-              name="text"
-              className="todo-input edit"
-              onChange={inputHandler}
-              fullWidth
-              label="Update task"
-              variant="outlined"
-            />
-            <Button
-              className="todo-button edit"
-              variant="outlined"
-              type="submit"
-              onClick={submitHandler}
-            >
-              Update
-            </Button>
-          </>
-        ) : (
-          <>
-            {" "}
-            <TextField
-              inputRef={currentRef}
-              type="text"
-              placeholder="Add a task..."
-              value={input}
-              name="text"
-              className="todo-input"
-              onChange={inputHandler}
-              fullWidth
-              label="Enter task"
-              variant="outlined"
-            />
-            <Button
-              className="todo-button"
-              variant="outlined"
-              type="submit"
-              onClick={submitHandler}
-            >
-              Add Task
-            </Button>
-          </>
-        )}
-      </form>
+      {/* <form> */}
+      {props.edit ? (
+        <>
+          {" "}
+          <TextField
+            inputRef={currentRef}
+            type="text"
+            placeholder="Update task..."
+            value={input}
+            name="text"
+            className="todo-input edit"
+            onChange={inputHandler}
+            fullWidth
+            label="Update task"
+            variant="outlined"
+            autoComplete="off"
+          />
+          <Button
+            className="todo-button edit"
+            variant="outlined"
+            type="submit"
+            onClick={submitHandler}
+          >
+            Update
+          </Button>
+        </>
+      ) : (
+        <>
+          {" "}
+          <TextField
+            inputRef={currentRef}
+            type="text"
+            placeholder="Add a task..."
+            value={input}
+            name="text"
+            className="todo-input"
+            onChange={inputHandler}
+            fullWidth
+            label="Enter task"
+            variant="outlined"
+            autoComplete="off"
+          />
+          <Button
+            className="todo-button"
+            variant="outlined"
+            type="submit"
+            onClick={submitHandler}
+          >
+            Add Task
+          </Button>
+        </>
+      )}
+      {/* </form> */}
     </Card>
   );
 };

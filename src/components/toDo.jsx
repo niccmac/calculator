@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
   CardActions,
+  Stack,
 } from "@mui/material";
 import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 import { toDoContext } from "./providers/toDoProvider";
@@ -35,8 +36,10 @@ const ToDo = () => {
       return (
         <Card
           sx={{ maxWidth: 345 }}
-          className={task.isComplete ? "todo-row-complete" : "todo-row "}
           key={index}
+          className={
+            task.isComplete ? " task todo-row-complete" : " task todo-row "
+          }
         >
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" key={task.id}>
@@ -68,6 +71,10 @@ const ToDo = () => {
       );
     });
   }
-  return <div>{taskList}</div>;
+  return (
+    <Stack spacing={2} className="task-list">
+      {taskList}
+    </Stack>
+  );
 };
 export default ToDo;
