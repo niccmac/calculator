@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Button, TextField, Input } from "@mui/material";
+import { Button, TextField, Input, Card } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
 const ToDoForm = (props) => {
@@ -22,53 +22,61 @@ const ToDoForm = (props) => {
     setInput("");
   };
   return (
-    <>
-      <form className="todo-form">
-        {props.edit ? (
-          <>
-            {" "}
-            <Input
-              inputRef={currentRef}
-              type="text"
-              placeholder="Update task..."
-              value={input}
-              name="text"
-              className="todo-input edit"
-              onChange={inputHandler}
-            />
-            <Button
-              className="todo-button edit"
-              variant="outlined"
-              type="submit"
-              onClick={submitHandler}
-            >
-              Update
-            </Button>
-          </>
-        ) : (
-          <>
-            {" "}
-            <Input
-              inputRef={currentRef}
-              type="text"
-              placeholder="Add a task..."
-              value={input}
-              name="text"
-              className="todo-input"
-              onChange={inputHandler}
-            />
-            <Button
-              className="todo-button"
-              variant="outlined"
-              type="submit"
-              onClick={submitHandler}
-            >
-              Add Task
-            </Button>
-          </>
-        )}
-      </form>
-    </>
+    <Card className="todo-form">
+      {/* <form> */}
+      {props.edit ? (
+        <>
+          {" "}
+          <TextField
+            inputRef={currentRef}
+            type="text"
+            placeholder="Update task..."
+            value={input}
+            name="text"
+            className="todo-input edit"
+            onChange={inputHandler}
+            fullWidth
+            label="Update task"
+            variant="outlined"
+            autoComplete="off"
+          />
+          <Button
+            className="todo-button edit"
+            variant="outlined"
+            type="submit"
+            onClick={submitHandler}
+          >
+            Update
+          </Button>
+        </>
+      ) : (
+        <>
+          {" "}
+          <TextField
+            inputRef={currentRef}
+            type="text"
+            placeholder="Add a task..."
+            value={input}
+            name="text"
+            className="todo-input"
+            onChange={inputHandler}
+            fullWidth
+            label="Enter task"
+            variant="outlined"
+            autoComplete="off"
+          />
+          <Button
+            className="todo-button"
+            variant="outlined"
+            type="submit"
+            onClick={submitHandler}
+          >
+            Add Task
+          </Button>
+        </>
+      )}
+      {/* </form> */}
+    </Card>
   );
 };
 export default ToDoForm;
