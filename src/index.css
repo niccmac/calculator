@@ -147,7 +147,6 @@ button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-M
   margin: 5px;
   padding: 10px;
   color: var(--dark);
-
   background-color: #81b29a;
 }
 
@@ -179,4 +178,42 @@ button.todo-button {
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.task.css-1ri6ub7-MuiPaper-root-MuiCard-root {
   align-content: center;
   background-color: var(----tdbase);
+}
+
+.nav-bar-tabs {
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+.login-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: var(--tdsecondary);
+  border: 2px solid rgb(0, 0, 0);
+  /* box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
+    rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px; */
+  padding: 32px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-modal > *:not(:last-child) {
+  display: block;
+  margin-bottom: 30px;
+}
+
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.login-button.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  color: black;
+  border-color: black;
+}
+
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.login-button.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:focus {
+  color: #0088d1;
+  border-color: #0088d1;
 }
