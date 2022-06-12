@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+// TODO make provider, make button for nav bar
 const Calculator = () => {
   //State
   const [calc, setCalc] = useState("");
