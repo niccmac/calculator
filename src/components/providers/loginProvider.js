@@ -23,12 +23,20 @@ export default function LoginProvider(props) {
   };
   const loginHandler = () => {
     // TODO connect to backend - obfuscate pasword - cookie
+    // set user could be cookie or true
     if (email && password) {
       setUser({
         email,
         password,
       });
+      setOpen(false);
     }
+  };
+  const logoutHandler = () => {
+    setUser();
+    setPassword();
+    setEmail();
+    setOpen(false);
   };
   const exportValues = {
     open,
@@ -38,6 +46,8 @@ export default function LoginProvider(props) {
     passwordEntered,
     emailEntered,
     loginHandler,
+    user,
+    logoutHandler,
   };
   return (
     <loginContext.Provider value={exportValues}>

@@ -1,7 +1,7 @@
 import "./App.css";
 import Login from "./components/login";
 import LoginProvider from "./components/providers/loginProvider";
-// import NavBarTab from "./components/nav/navBar";
+import NavBarTab from "./components/nav/navBar";
 import ToDoProvider from "./components/providers/toDoProvider";
 // import Calculator from "./components/calculator";
 // import CardGame from "./components/cardGame";
@@ -17,8 +17,8 @@ const App = () => {
         {/* <ToDoProvider>
         <ToDoList />
       </ToDoProvider> */}
-        {/* <NavBarTab></NavBarTab> */}
-        <Login />
+        <NavBarTab></NavBarTab>
+        {/* <Login /> */}
       </LoginProvider>
     </div>
   );

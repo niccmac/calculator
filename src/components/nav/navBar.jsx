@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Tabs, Tab } from "@mui/material";
+import Login from "../login";
 // TODO contect provider > state show component
 const NavBarTab = () => {
   return (
@@ -13,7 +14,7 @@ const NavBarTab = () => {
           // onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Login" />
+          <Tab label={<Login />} />
           <Tab label="Calculator" />
           <Tab label="Tasks" />
           <Tab label="Game" />
