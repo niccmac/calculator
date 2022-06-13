@@ -7,19 +7,31 @@ import ToDoProvider from "./components/providers/toDoProvider";
 // import CardGame from "./components/cardGame";
 // import ToDoForm from "./components/toDoForm";
 import ToDoList from "./components/toDoList";
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useParams,
+} from "react-router-dom";
 const App = () => {
   return (
     <div className="App">
-      <LoginProvider>
-        {/* <Calculator /> */}
-        {/* <p>Duck</p> */}
-        {/* <CardGame /> */}
-        {/* <ToDoProvider>
+      <Router>
+        <LoginProvider>
+          {/* <Calculator /> */}
+          {/* <p>Duck</p> */}
+          {/* <CardGame /> */}
+          {/* <ToDoProvider>
         <ToDoList />
       </ToDoProvider> */}
-        <NavBarTab></NavBarTab>
-        {/* <Login /> */}
-      </LoginProvider>
+          <Routes>
+            <Route index element={<NavBarTab />} />
+            {/* <Login /> */}
+          </Routes>
+        </LoginProvider>
+      </Router>
     </div>
   );
 };

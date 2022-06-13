@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Tabs, Tab } from "@mui/material";
 import Login from "../login";
 import Calculator from "../calculator";
+import { loginContext } from "../providers/loginProvider";
+
 // TODO contect provider > state show component
 const NavBarTab = () => {
+  const { onOpen } = useContext(loginContext);
   return (
     <>
       <Box
@@ -15,8 +18,9 @@ const NavBarTab = () => {
           // onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label={<Login />} />
-          {/* <Tab label={<Calculator />} /> */}
+          <Tab label="Login" onClick={onOpen} />
+          <Login />
+
           <Tab label="Calculator" />
           <Tab label="Tasks" />
           <Tab label="Game" />
