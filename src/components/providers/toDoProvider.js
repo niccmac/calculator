@@ -36,7 +36,7 @@ export default function ToDoProvider(props) {
   };
   const toggleTodo = () => {
     setTodoOpen((todoOpen) => !todoOpen);
-    console.log("reachable");
+
     // if calc is open close;
     if (calcOpen) {
       closeCalc();
