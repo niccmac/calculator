@@ -1,44 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { calcContext } from "./providers/calcProvider";
 // TODO make provider, make button for nav bar
 const Calculator = () => {
-  //State
-  const [calc, setCalc] = useState("");
-  const [result, setResult] = useState("");
-
-  // Operators
-  const ops = ["/", "*", "+", "-", "."];
-
-  // Add numbers and operators
-  const updateCalc = (value) => {
-    if (
-      (ops.includes(value) && calc === "") ||
-      (ops.includes(value) && ops.includes(calc.slice(-1)))
-    ) {
-      return;
-    }
-    setCalc(calc + value);
-    if (!ops.includes(value)) {
-      setResult(eval(calc + value).toString());
-    }
-  };
-
-  // Calculate
-
-  const calaculator = () => {
-    setCalc(eval(calc).toString());
-  };
-
-  // Delete last
-
-  const deleteLast = () => {
-    if (calc === "") {
-      return;
-    }
-    const value = calc.slice(0, -1);
-    setCalc(value);
-  };
+  const {
+    deleteLast,
+    calaculator,
+    updateCalc,
+    calc,
+    setCalc,
+    result,
+    calcOpen,
+  } = useContext(calcContext);
   return (
-    <div className="calaculator">
+    <div className={calcOpen ? "calaculator" : "calaculator-hidden"}>
+      {/* <div className="calaculator"> */}
       <div className="calc-display">
         {result ? <span>({result})</span> : ""}&nbsp;
         {calc || "0"}
