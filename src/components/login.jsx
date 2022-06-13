@@ -22,7 +22,6 @@ const Login = () => {
   } else {
     return (
       <>
-        <Button onClick={onOpen}>Login</Button>
         <Modal
           // hideBackdrop="true"
 

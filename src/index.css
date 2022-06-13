@@ -1,7 +1,7 @@
 :root {
-  --primary: #f0a202;
-  --secondary: #f18805;
-  --light: #d95d39;
+  --primary: #658e9c;
+  --secondary: #3d405b;
+  --light: #f4f1de;
   --dark: #202c59;
   --tdprimary: #658e9c;
   --tdsecondary: #3d405b;
@@ -27,12 +27,24 @@
 }
 
 .calaculator {
+  position: absolute;
   width: 100%;
   max-width: 400px;
   background-color: #581f18;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px, 2px, 64px, rgba(0, 0, 0, 0.2);
+  visibility: visible;
+}
+
+.calaculator-hidden {
+  width: 100%;
+  max-width: 400px;
+  background-color: #581f18;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px, 2px, 64px, rgba(0, 0, 0, 0.2);
+  visibility: hidden;
 }
 
 .calc-display {
@@ -132,11 +144,22 @@ button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-M
 }
 
 .todo {
+  position: absolute;
   display: flex;
   flex-direction: column;
   padding: 5px;
-  background-color: #e07a5f;
+  background-color: var(--secondary);
   border-radius: 10px;
+  visibility: visible;
+}
+
+.todo-hidden {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  visibility: hidden;
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.todo-form.css-bhp9pd-MuiPaper-root-MuiCard-root {
@@ -147,14 +170,14 @@ button.MuiButtonBase-root.MuiCardActionArea-root.css-b6lsxj-MuiButtonBase-root-M
   margin: 5px;
   padding: 10px;
   color: var(--dark);
-  background-color: #81b29a;
+  background-color: var(--tdlight);
 }
 
 button.todo-button {
   margin: 10px;
   padding: 5px;
   color: var(--dark);
-  background-color: var(----tdbase);
+  background-color: var(--tdlight);
 }
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.todo-row-complete.css-1ri6ub7-MuiPaper-root-MuiCard-root {

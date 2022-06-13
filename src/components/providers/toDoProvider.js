@@ -1,9 +1,11 @@
 import { useContext, useState, createContext } from "react";
-
+import { calcContext } from "../providers/calcProvider";
 export const toDoContext = createContext();
 
 export default function ToDoProvider(props) {
   const [allToDo, setAllToDo] = useState([]);
+  const [todoOpen, setTodoOpen] = useState(false);
+  const { closeCalc, calcOpen } = useContext(calcContext);
   const addToDo = (todo) => {
     if (!todo.text || /^\s$/.test(todo.text)) {
       return;
@@ -32,6 +34,14 @@ export default function ToDoProvider(props) {
     }
     setAllToDo((prev) => prev.map((item) => (item.id === id ? newText : null)));
   };
+  const toggleTodo = () => {
+    setTodoOpen((todoOpen) => !todoOpen);
+
+    // if calc is open close;
+    if (calcOpen) {
+      closeCalc();
+    }
+  };
   const exportValues = {
     addToDo,
     allToDo,
@@ -39,6 +49,8 @@ export default function ToDoProvider(props) {
     deleteToDo,
     completeToDo,
     editToDo,
+    toggleTodo,
+    todoOpen,
   };
 
   return (
