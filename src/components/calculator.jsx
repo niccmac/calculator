@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { calcContext } from "./providers/calcProvider";
-// TODO make provider, make button for nav bar
+
 const Calculator = () => {
   const {
     deleteLast,
@@ -13,7 +13,6 @@ const Calculator = () => {
   } = useContext(calcContext);
   return (
     <div className={calcOpen ? "calaculator" : "calaculator-hidden"}>
-      {/* <div className="calaculator"> */}
       <div className="calc-display">
         {result ? <span>({result})</span> : ""}&nbsp;
         {calc || "0"}

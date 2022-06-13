@@ -21,19 +21,19 @@ const App = () => {
     <div className="App">
       <LoginProvider>
         <CalcProvider>
-          <Router>
-            {/* <Calculator /> */}
-            {/* <p>Duck</p> */}
+          <ToDoProvider>
+            <Router>
+              {/* <Calculator /> */}
+              {/* <p>Duck</p> */}
 
-            {/* <CardGame /> */}
-            {/* <ToDoProvider>
-        <ToDoList />
-      </ToDoProvider> */}
-            <Routes>
-              <Route index element={<NavBarTab />} />
-            </Routes>
-          </Router>
-          <Calculator />
+              {/* <CardGame /> */}
+              <Routes>
+                <Route index element={<NavBarTab />} />
+              </Routes>
+            </Router>
+            <Calculator />
+            <ToDoList />
+          </ToDoProvider>
         </CalcProvider>
       </LoginProvider>
     </div>

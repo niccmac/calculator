@@ -1,5 +1,5 @@
 import { useContext, useState, createContext } from "react";
-
+import {} from "../providers/toDoProvider";
 export const calcContext = createContext();
 
 export default function CalcProvider(props) {
@@ -7,6 +7,8 @@ export default function CalcProvider(props) {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
   const [calcOpen, setCalcOpen] = useState(false);
+
+  // const { todoOpen, toggleTodo } = useContext(calcContext);
 
   // Operators
   const ops = ["/", "*", "+", "-", "."];
@@ -38,6 +40,9 @@ export default function CalcProvider(props) {
   const toggleCalc = () => {
     setCalcOpen((calcOpen) => !calcOpen);
   };
+  const closeCalc = () => {
+    setCalcOpen(false);
+  };
   const exportValues = {
     deleteLast,
     calaculator,
@@ -49,6 +54,7 @@ export default function CalcProvider(props) {
     setResult,
     calcOpen,
     toggleCalc,
+    closeCalc,
   };
   return (
     <calcContext.Provider value={exportValues}>
