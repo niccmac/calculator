@@ -14,54 +14,76 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import MyCard from "./myCard";
 import GameProvider, { gameContext, useGame } from "./providers/gameProvider";
-
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import { v4 as uuidv4 } from "uuid";
+import { AiFillCodeSandboxSquare } from "react-icons/ai";
+const icons = [
+  { icon: faCoffee },
+  { icon: faGhost },
+  { icon: faBinoculars },
+  { icon: faFrog },
+  { icon: faHotdog },
+  { icon: faSocks },
+  { icon: faWorm },
+  { icon: faSkullCrossbones },
+];
 const CardList = () => {
   // const [game, setGame] = useState(true);
-  const icons = [
-    faCoffee,
-    faGhost,
-    faBinoculars,
-    faFrog,
-    faHotdog,
-    faSocks,
-    faWorm,
-    faSkullCrossbones,
-    faCoffee,
-    faGhost,
-    faBinoculars,
-    faFrog,
-    faHotdog,
-    faSocks,
-    faWorm,
-    faSkullCrossbones,
-  ];
+  const [cards, setCards] = useState([]);
+  const [match, setMatched] = useState([]);
   const [flipped, setFlipped] = useState([]);
+  const [matchIcons, setMatchIcons] = useState([]);
   const [turns, setTurns] = useState(0);
-  const randomIconsArray = [];
 
   const generateGame = () => {
-    for (let i = 0; i < 16; i++) {
-      const randomIconPicker = () => {
-        let picker = icons[Math.floor(Math.random() * icons.length)];
-        randomIconsArray.push(picker);
-        let index = icons.indexOf(picker);
-        icons.splice(index, 1);
-      };
-      randomIconPicker();
-    }
+    const shuffledIcons = [...icons, ...icons]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: uuidv4() }));
+    setCards(shuffledIcons);
+    setTurns(0);
+    // console.log(cards, turns);
+    // console.log(shuffledIcons);
   };
-  generateGame();
 
-  const handleCardClick = (event, index) => {
+  const handleCardClick = (event, cardID, cardIcon) => {
     if (flipped.length === 1) {
-      setFlipped((prev) => [...prev, index]);
+      setFlipped((prev) => [...prev, cardID]);
+      setMatchIcons((prev) => [...prev, cardIcon]);
       setTurns((turns) => turns + 1);
     } else {
       // If two cards are already open, we cancel timeout set for flipping cards back
       // clearTimeout(timeout.current);
-      setFlipped([index]);
+      setFlipped([cardID]);
+      setMatchIcons([cardIcon]);
     }
   };
+
+  const checkFlipped = (cardID) => {
+    if (flipped[0] === cardID || flipped[1] === cardID) {
+      return "true";
+    }
+    return "false";
+  };
+
+  const checkDisabled = (cardID) => {
+    // match.((id) => {
+    //   if (id === cardID) {
+    //     return "true";
+    //   }
+    //   return "false";
+    // });
+  };
+  // Check match
+  if (matchIcons.length === 2) {
+    console.log("length 2");
+
+    if (matchIcons[0].iconName === matchIcons[1].iconName) {
+      console.log("matched");
+      setMatched((prev) => [...prev, flipped[0], flipped[1]]);
+      setFlipped([]);
+      setMatchIcons([]);
+    }
+  }
 
   return (
     <GameProvider>
@@ -74,18 +96,20 @@ const CardList = () => {
         borderRadius={10}
         padding={5}
       >
-        {randomIconsArray.map((icon, index) => {
+        {cards.map((card) => {
           return (
-            <Grid item md={4} key={index}>
+            <Grid item md={4} key={card.id}>
               <CardActionArea>
                 <FontAwesomeIcon
-                  key={index}
-                  isdisabled={false}
-                  isinactive={false}
-                  isflipped={flipped.includes(index)}
-                  icon={flipped.includes(index) ? icon : faDiamond}
+                  key={card}
+                  isdisabled={checkDisabled(card.id)}
+                  isinactive={"false"}
+                  isflipped={checkFlipped(card.id)}
+                  icon={flipped.includes(card.id) ? card.icon : faDiamond}
                   padding={2}
-                  onClick={(event) => handleCardClick(event, index)}
+                  onClick={(event) =>
+                    handleCardClick(event, card.id, card.icon)
+                  }
                 />
               </CardActionArea>
             </Grid>

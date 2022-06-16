@@ -26,7 +26,7 @@ const App = () => {
               {/* <Calculator /> */}
               {/* <p>Duck</p> */}
 
-              {/* <CardGame /> */}
+              <CardGame />
               <Routes>
                 <Route index element={<NavBarTab />} />
               </Routes>
