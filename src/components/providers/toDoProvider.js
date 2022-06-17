@@ -1,5 +1,5 @@
 import { useContext, useState, createContext } from "react";
-import { calcContext } from "../providers/calcProvider";
+import { calcContext } from "./calcProvider";
 export const toDoContext = createContext();
 
 export default function ToDoProvider(props) {
